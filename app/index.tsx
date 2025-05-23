@@ -25,7 +25,7 @@ export default function Screen() {
   return (
     <View className=''>
 
-      <Text>test one </Text>
+     
       
     </View>
   );
