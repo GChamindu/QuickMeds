@@ -1,52 +1,52 @@
 import * as React from 'react';
 import { View, Image, Dimensions } from 'react-native';
-import Animated, { FadeInUp, FadeOutDown, LayoutAnimationConfig } from 'react-native-reanimated';
-import { Avatar, AvatarFallback, AvatarImage } from '~/components/ui/avatar';
+import Animated, { FadeInUp } from 'react-native-reanimated';
 import { Button } from '~/components/ui/button';
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardFooter,
-  CardHeader,
-  CardTitle,
-} from '~/components/ui/card';
-import { Progress } from '~/components/ui/progress';
 import { Text } from '~/components/ui/text';
-import { Tooltip, TooltipContent, TooltipTrigger } from '~/components/ui/tooltip';
+import { theme } from './constants/colors';
+import { utils } from './utils';
 import homeImage from '../assets/images/home/03.jpg';
-import {theme} from './constants/colors';
 
 
-const { width, height } = Dimensions.get('window');
+const { width } = Dimensions.get('window');
 
 export default function Screen() {
-  const [progress, setProgress] = React.useState(78);
-
-  function updateProgressValue() {
-    setProgress(Math.floor(Math.random() * 100));
-  }
-
   return (
-    <View className="flex-1 bg-gray-50">
+    <View style={{flex: 1, backgroundColor: theme.colors.white}}>
       {/* Status Bar Spacer */}
-      <View className="h-15" />
+      <View style={{height: utils.responsiveHeight(15)}} />
       
       {/* Main Content */}
-      <View className="flex-1 px-6  items-center justify-between pt-10">
+      <View style={{
+        flex: 1,
+        paddingHorizontal: utils.responsiveWidth(24),
+        alignItems: 'center',
+        justifyContent: 'space-between',
+        paddingTop: utils.responsiveHeight(40)
+      }}>
         {/* Title */}
         <Animated.View 
           entering={FadeInUp.delay(200)}
-          className="items-center mb-5"
+          style={{alignItems: 'center', marginBottom: utils.responsiveHeight(20)}}
         >
-          <Text className="text-4xl font-bold text-slate-800 text-center leading-8">
-          Upload Your Prescription{'\n'}And After Collect!
+          <Text style={{
+            fontSize: utils.responsiveFont(32),
+            fontWeight: '700',
+            color: theme.colors.darkBlue,
+            textAlign: 'center',
+            lineHeight: utils.responsiveHeight(40),
+            marginBottom: utils.responsiveHeight(10)
+          }}>
+            Download Your Prescription{'\n'}And Test Results!
           </Text>
           
+          {/* Number Display */}
+         
         </Animated.View>
 
-        {/* Illustration */}
-        <Animated.View 
+
+         {/* Illustration */}
+         <Animated.View 
           entering={FadeInUp.delay(400)}
           className="flex-1 justify-center items-center w-full max-h-75"
         >
@@ -58,49 +58,61 @@ export default function Screen() {
           />
         </Animated.View>
 
-        {/* Page Indicators */}
-        <Animated.View 
-          entering={FadeInUp.delay(600)}
-          className="flex-row items-center my-5"
-        >
-          <View className="w-6 h-2 rounded-full bg-slate-800 mx-1" />
-          <View className="w-2 h-2 rounded-full bg-gray-300 mx-1" />
-          <View className="w-2 h-2 rounded-full bg-gray-300 mx-1" />
-        </Animated.View>
-
         {/* Description */}
         <Animated.View 
-          entering={FadeInUp.delay(800)}
-          className="items-center mb-10"
+          entering={FadeInUp.delay(600)}
+          style={{alignItems: 'center', marginBottom: utils.responsiveHeight(40)}}
         >
-          <Text className="text-base text-gray-500 text-center leading-6">
-            Labore w culpa excepteur culpa{'\n'}occaecat ex nisi mollit.
+          <Text style={{
+            fontSize: utils.responsiveFont(16),
+            color: theme.colors.gray,
+            textAlign: 'center',
+            lineHeight: utils.responsiveHeight(24)
+          }}>
+            Labore sunt culpa excepteur culpa{'\n'}occaecat ex nisi mollit.
           </Text>
         </Animated.View>
       </View>
 
       {/* Bottom Section */}
       <Animated.View 
-        entering={FadeInUp.delay(1000)}
-        className="px-6 pb-10 items-center"
+        entering={FadeInUp.delay(800)}
+        style={{
+          paddingHorizontal: utils.responsiveWidth(24),
+          paddingBottom: utils.responsiveHeight(40),
+          alignItems: 'center'
+        }}
       >
         <Button 
-        style={{
-          backgroundColor: theme.colors.darkBlue,
-        }}
-          className=" w-full h-16 rounded-xl justify-center items-center mb-5"
+          style={{
+            backgroundColor: theme.colors.darkBlue,
+            width: '100%',
+            height: utils.responsiveHeight(56),
+            borderRadius: utils.responsiveWidth(12),
+            justifyContent: 'center',
+            alignItems: 'center',
+            marginBottom: utils.responsiveHeight(20)
+          }}
           onPress={() => console.log('Get Started pressed')}
         >
-          <Text className="text-white text-lg font-semibold">
+          <Text style={{
+            color: theme.colors.white,
+            fontSize: utils.responsiveFont(18),
+            fontWeight: '600'
+          }}>
             Get Started
           </Text>
         </Button>
         
         {/* Home Indicator */}
-        <View className="w-33 h-1 bg-black rounded-sm opacity-30" />
+        <View style={{
+          width: utils.responsiveWidth(33),
+          height: utils.responsiveHeight(1),
+          backgroundColor: theme.colors.black,
+          borderRadius: utils.responsiveWidth(1),
+          opacity: 0.3
+        }} />
       </Animated.View>
     </View>
   );
 }
-
-
