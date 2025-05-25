@@ -15,6 +15,7 @@ import { Progress } from '~/components/ui/progress';
 import { Text } from '~/components/ui/text';
 import { Tooltip, TooltipContent, TooltipTrigger } from '~/components/ui/tooltip';
 import homeImage from '../assets/images/home/03.jpg';
+import {theme} from './constants/colors';
 
 
 const { width, height } = Dimensions.get('window');
@@ -84,7 +85,10 @@ export default function Screen() {
         className="px-6 pb-10 items-center"
       >
         <Button 
-          className="bg-slate-800 w-full h-16 rounded-xl justify-center items-center mb-5"
+        style={{
+          backgroundColor: theme.colors.darkBlue,
+        }}
+          className=" w-full h-16 rounded-xl justify-center items-center mb-5"
           onPress={() => console.log('Get Started pressed')}
         >
           <Text className="text-white text-lg font-semibold">
