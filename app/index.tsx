@@ -28,6 +28,7 @@ export default function Screen() {
         <Animated.View 
           entering={FadeInUp.delay(200)}
           style={{alignItems: 'center', marginBottom: utils.responsiveHeight(20)}}
+          className="leading-3"
         >
           <Text style={{
             fontSize: utils.responsiveFont(32),
@@ -36,7 +37,7 @@ export default function Screen() {
             textAlign: 'center',
             lineHeight: utils.responsiveHeight(40),
             marginBottom: utils.responsiveHeight(10)
-          }}>
+          }} className='leading-9'>
             Download Your Prescription{'\n'}And Test Results!
           </Text>
           
