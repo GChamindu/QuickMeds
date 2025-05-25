@@ -39,7 +39,7 @@ export default function Screen() {
           className="items-center mb-5"
         >
           <Text className="text-4xl font-bold text-slate-800 text-center leading-8">
-            Upload Your Prescription{'\n'}And After Collect!
+          Upload Your Prescription{'\n'}And After Collect!
           </Text>
           
         </Animated.View>
